@@ -1,0 +1,26 @@
+[
+  {
+    "folder": "webtoprint",
+    "numOfPics": 3,
+    "title": "WebToPrint",
+    "description": "Private printing company management software. Includes modules for all parts of bussiness ranging from order generation, billing, accounting, inventory... This app also includes fiscalization",
+    "link": "https://imgur.com/gallery/L4uxVg9",
+    "techStack": ["Vue", "Sass", "PHP", "MySQL"]
+  },
+  {
+    "folder": "robinos",
+    "numOfPics": 4,
+    "title": "Robinos",
+    "description": "Decentalized sports predition platform. Has various games, staking programs, rewards, NFTs and community",
+    "link": "https://robinos.finance/",
+    "techStack": ["Solidity", "Web3"]
+  },
+  {
+    "folder": "sphere",
+    "numOfPics": 3,
+    "title": "Sphere",
+    "description": "3D web development tools for creating custom Sphere UIs",
+    "link": "https://spheredemo.sphere.co.uk/en/website",
+    "techStack": ["React", "Three.js", "Typescript", "Sass"]
+  }
+]

@@ -1,0 +1,63 @@
+.ScrollButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 7;
+  margin: auto auto;
+}
+
+.ScrollButton svg {
+  margin: 0 3px 3px -1px;
+}
+
+.Bounce {
+  animation: bounce 5s alternate-reverse infinite;
+}
+
+.GoUp {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  animation: relocate 1s ease-in-out;
+}
+
+.GoUp svg {
+  transform: rotate(180deg);
+}
+
+.OverFooter {
+  background-color: var(--primary-light);
+  border: solid var(--primary-light) 2px;
+  color: var(--primary-dark);
+}
+
+.OverFooter:hover {
+  background-color: var(--primary-dark);
+  border: solid var(--primary-light) 2px;
+  color: var(--primary-light);
+}
+
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes relocate {
+  0% {
+    bottom: 100%;
+    right: 50%;
+  }
+
+  100% {
+    bottom: 50px;
+    right: 50px;
+  }
+}

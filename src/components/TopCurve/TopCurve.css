@@ -1,0 +1,37 @@
+.CurveContainer {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 20;
+  transition: all 0.5s ease-in-out;
+}
+
+.TopCurve {
+  position: relative;
+  margin-top: 0px;
+  height: 20px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, #ffffff, var(--primary-light));
+}
+
+.CurvePart {
+  position: absolute;
+  height: 50px;
+  width: 200px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  background: radial-gradient(circle, var(--primary-light) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.OverrideVisibility {
+  transform: translateY(0px) !important;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .CurveContainer {
+    transform: translateY(-50px);
+  }
+}

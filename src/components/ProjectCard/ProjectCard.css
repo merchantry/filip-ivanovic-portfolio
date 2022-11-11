@@ -1,0 +1,41 @@
+.ProjectCard {
+  max-width: 700px;
+}
+
+.ProjectCard>.card-header {
+  text-align: center;
+}
+
+.ProjectCard img {
+  margin: 10px auto;
+  border: solid #cecece 1px;
+}
+
+.ProjectCard a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--bs-card-cap-color);
+}
+
+.ProjectCard a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+}
+
+.ProjectCard .card-footer {
+  text-align: right;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary-dark);
+}
+
+.ProjectCard .card-footer>span {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+  .ProjectCard {
+    width: 370px;
+    font-size: 14px;
+  }
+}

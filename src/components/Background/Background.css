@@ -1,0 +1,27 @@
+.Background {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: auto;
+  width: auto;
+  z-index: -1;
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+}
+
+.Background * {
+  position: absolute;
+}
+
+.Blob1 {
+  top: 20%;
+  transform: scale(188%) translate(-6%, 40%);
+}
+
+.Blob2 {
+  top: 33%;
+  right: 0;
+  transform: scale(186%) translate(17%, 10%) rotate(345deg);
+}

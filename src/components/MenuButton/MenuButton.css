@@ -1,0 +1,30 @@
+.MenuButton {
+  height: 20px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.MenuButton * {
+  transition: all 0.5s ease-in-out;
+}
+
+.MenuLine {
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary-dark);
+  border-radius: 4px;
+}
+
+.Open>div:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.Open>div:nth-child(2) {
+  opacity: 0;
+}
+
+.Open>div:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}

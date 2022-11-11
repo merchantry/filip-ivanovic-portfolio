@@ -1,0 +1,12 @@
+.Projects {
+  margin-top: 200px;
+}
+
+.ProjectList {
+  flex-direction: column;
+  align-items: center;
+}
+
+.ProjectList>* {
+  margin: 100px auto;
+}

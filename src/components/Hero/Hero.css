@@ -1,0 +1,98 @@
+.MainSection {
+  width: 1140px;
+  margin: auto;
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.InlineContactButton {
+  display: inline-block;
+  margin: auto 7px;
+}
+
+.InlineContactButton svg {
+  margin: auto auto 4px 2px;
+}
+
+.Hero {
+  width: 100%;
+  display: flex;
+}
+
+
+.MainTitle {
+  margin: 35vh auto;
+}
+
+.MainTitle h5 {
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.CanvasContainer {
+  position: relative;
+  cursor: e-resize;
+  padding: 0;
+}
+
+.Block {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  z-index: 2;
+}
+
+.Bottom {
+  bottom: 0px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.Bottom::after {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.Top {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .CanvasContainer {
+    position: absolute;
+    z-index: 0;
+  }
+
+  .Hero,
+  .CanvasContainer {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 90vh;
+  }
+
+  .Hero {
+    z-index: 5;
+  }
+
+  /* 
+  .MainTitle {
+    margin-top: 250px;
+  } */
+
+  .MainTitle h1 {
+    font-size: 32px;
+  }
+
+  .MainTitle h5 {
+    font-weight: 400;
+    line-height: 30px;
+    font-size: 18px;
+  }
+}

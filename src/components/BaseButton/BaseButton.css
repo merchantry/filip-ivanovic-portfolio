@@ -1,0 +1,15 @@
+.BaseButton {
+  --bs-btn-border-color: var(--button-border-color);
+  --bs-btn-hover-border-color: var(--button-border-color);
+  --bs-btn-active-border-color: var(--button-border-color);
+
+  --bs-btn-bg: var(--button-color);
+  --bs-btn-active-bg: var(--button-color);
+  --bs-btn-hover-bg: var(--button-color);
+
+}
+
+:root {
+  --button-color: #0047b1;
+  --button-border-color: var(--primary-light);
+}

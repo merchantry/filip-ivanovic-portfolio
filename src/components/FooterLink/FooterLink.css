@@ -1,0 +1,7 @@
+.FooterLink {
+  color: #fff;
+}
+
+.FooterLink:hover {
+  color: var(--primary-light);
+}

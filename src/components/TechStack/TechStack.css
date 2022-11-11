@@ -1,0 +1,19 @@
+.TechStack>* {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px auto;
+}
+
+.TechStack>div:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.TechStack>*>* {
+  margin: 20px 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .TechStack>* {
+    margin: 25px auto;
+  }
+}

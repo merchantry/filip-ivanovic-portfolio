@@ -1,0 +1,11 @@
+Model Information:
+* title:	BITCOIN - FREE MODEL
+* source:	https://sketchfab.com/3d-models/bitcoin-free-model-551901abb50a4166abdf5f7c92311d37
+* author:	FranciscoDugarte (https://sketchfab.com/FranciscoDugarte)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "BITCOIN - FREE MODEL" (https://sketchfab.com/3d-models/bitcoin-free-model-551901abb50a4166abdf5f7c92311d37) by FranciscoDugarte (https://sketchfab.com/FranciscoDugarte) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
