@@ -32,7 +32,7 @@ function ProjectCard({
   });
 
   return (
-    <Card ref={ref} className="ProjectCard BoxShadow" style={{ opacity }}>
+    <Card ref={ref} className="ProjectCard" style={{ opacity }}>
       <Card.Header>
         <h3>
           <a href={link} target="_blank" rel="noreferrer">

@@ -35,7 +35,7 @@ function ScrollButton({ onClickDown, onClickUp }) {
   }, [goesUp]);
 
   return (
-    <Row ref={rowRef}>
+    <Row ref={rowRef} className="ButtonContainer">
       <BaseButton
         ref={buttonRef}
         className={`ScrollButton Bounce ${goesUp && 'GoUp'} ${

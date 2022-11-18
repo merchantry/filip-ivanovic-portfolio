@@ -1,3 +1,7 @@
+.ButtonContainer {
+  min-height: 50px;
+}
+
 .ScrollButton {
   width: 40px;
   height: 40px;
@@ -15,25 +19,31 @@
 }
 
 .GoUp {
+  --suck-in-duration: 0.5s;
+  --button-color: var(--primary-dark);
+
   position: fixed;
   bottom: 50px;
   right: 50px;
-  animation: relocate 1s ease-in-out;
+
+  animation: suckIn var(--suck-in-duration), relocate 1s var(--suck-in-duration);
+
 }
 
 .GoUp svg {
   transform: rotate(180deg);
+  animation: rotate var(--suck-in-duration);
 }
 
 .OverFooter {
-  background-color: var(--primary-light);
-  border: solid var(--primary-light) 2px;
+  --button-color: var(--primary-light);
+
   color: var(--primary-dark);
 }
 
 .OverFooter:hover {
-  background-color: var(--primary-dark);
-  border: solid var(--primary-light) 2px;
+  --button-color: var(--primary-dark);
+  --button-border-color: var(--primary-light);
   color: var(--primary-light);
 }
 
@@ -50,14 +60,70 @@
   }
 }
 
-@keyframes relocate {
-  0% {
-    bottom: 100%;
-    right: 50%;
+@keyframes rotate {
+
+  0%,
+  99% {
+    transform: rotate(0);
   }
 
   100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes suckIn {
+  0% {
+    transform: translateX(50%);
+    bottom: 90%;
+    right: 50%;
+    background-color: var(--root-button-color);
+  }
+
+  70% {
+    transform: translateX(50%) scale(150%);
+  }
+
+  100% {
+    transform: translateX(50%) scale(0%);
+    bottom: 90%;
+    right: 50%;
+    background-color: var(--root-button-color);
+  }
+}
+
+@keyframes relocate {
+  0% {
+    transform: scale(0%);
     bottom: 50px;
     right: 50px;
+  }
+
+  50% {
+    transform: scale(150%);
+  }
+
+  75% {
+    transform: scale(75%);
+  }
+
+  88% {
+    transform: scale(112.5%);
+  }
+
+  94% {
+    transform: scale(94%);
+  }
+
+  98% {
+    transform: scale(102%);
+  }
+
+  99% {
+    transform: scale(99%);
+  }
+
+  100% {
+    transform: scale(100%);
   }
 }
