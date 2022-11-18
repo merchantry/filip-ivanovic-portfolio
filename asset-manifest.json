@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/filip-ivanovic-portfolio/static/css/main.5d8b6cc7.css",
+    "main.js": "/filip-ivanovic-portfolio/static/js/main.b41a92d1.js",
+    "static/js/787.fbe851b6.chunk.js": "/filip-ivanovic-portfolio/static/js/787.fbe851b6.chunk.js",
+    "static/media/white_crystal_bg.jpg": "/filip-ivanovic-portfolio/static/media/white_crystal_bg.82ef983fd8337cc53425.jpg",
+    "static/media/crystal_bg.jpg": "/filip-ivanovic-portfolio/static/media/crystal_bg.01c653a9f138ea0d7893.jpg",
+    "index.html": "/filip-ivanovic-portfolio/index.html",
+    "static/media/blob_1.svg": "/filip-ivanovic-portfolio/static/media/blob_1.d30a784cc558e9995475eecfc7a2794e.svg",
+    "static/media/blob_2.svg": "/filip-ivanovic-portfolio/static/media/blob_2.80b083f9102745adb3acaa53c60ed07c.svg",
+    "main.5d8b6cc7.css.map": "/filip-ivanovic-portfolio/static/css/main.5d8b6cc7.css.map",
+    "main.b41a92d1.js.map": "/filip-ivanovic-portfolio/static/js/main.b41a92d1.js.map",
+    "787.fbe851b6.chunk.js.map": "/filip-ivanovic-portfolio/static/js/787.fbe851b6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5d8b6cc7.css",
+    "static/js/main.b41a92d1.js"
+  ]
+}
