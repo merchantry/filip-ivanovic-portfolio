@@ -6,12 +6,15 @@ import { Canvas } from '@react-three/fiber';
 import { forwardRef } from 'react';
 import CONFIG from '../../config';
 import BaseButton from '../BaseButton';
+import Gui from '../Gui';
 
 const Hero = forwardRef((_, ref) => {
   return (
     <Row>
       <Container className="MainSection" ref={ref}>
         <Row>
+          <Gui />
+
           <Col md className="Hero">
             <div className="MainTitle">
               <h1>I work on cool high-end apps</h1>
