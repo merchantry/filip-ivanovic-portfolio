@@ -1,7 +1,7 @@
 import { OrbitControls } from '@react-three/drei';
 import { Physics } from '@react-three/cannon';
 import { AxesHelper } from 'three';
-import FallingObjects from '../objects/FallingObjects';
+import CrystalDNAAnimation from '../objects/CrystalDNAAnimation';
 import { useOnScroll, useWindowEvent } from '../../helpers/hooks';
 import TogglableDebug from '../objects/TogglableDebug';
 import { useRef, useState } from 'react';
@@ -39,13 +39,13 @@ function HeroScene() {
   return (
     <>
       <ambientLight />
-      <pointLight color="white" intensity={20} position={[500, 100, -300]} />
-      <pointLight color="white" intensity={10} position={[-17, 18, 2]} />
-      <pointLight color="white" intensity={10} position={[0, -200, -50]} />
+      <pointLight color="white" intensity={2} position={[500, 100, -300]} />
+      <pointLight color="white" intensity={1} position={[-17, 18, 2]} />
+      <pointLight color="white" intensity={1} position={[0, -200, -50]} />
       <primitive object={new AxesHelper(2000)} visible={DEBUG} />
       <Physics gravity={[0, CONFIG.acceleration, 0]} isPaused={paused}>
         <TogglableDebug color="black" disable={!DEBUG}>
-          <FallingObjects debug={DEBUG} />
+          <CrystalDNAAnimation />
           <Floor position={[0, CONFIG.floorHeight, 0]} visible={DEBUG} />
         </TogglableDebug>
       </Physics>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { FLOOR_NAME } from '../three/objects/Floor';
 import { randomPositionAtHeight, randomTriple } from './helpers';
 
@@ -52,4 +52,42 @@ export function useWindowEvent(eventName, callback) {
       window.removeEventListener(eventName, callback);
     };
   }, [eventName, callback]);
+}
+
+export function usePrevious(value, deps) {
+  const ref = useRef(undefined);
+  useEffect(() => {
+    ref.current = value;
+  }, deps);
+  return ref.current;
+}
+
+export function useYRotation(api) {
+  const rotateY = useRef();
+  const rotationRef = useRef(0);
+
+  useEffect(() => {
+    const unsubscribe = api.rotation.subscribe((r) => {
+      rotationRef.current = r[1];
+    });
+    return unsubscribe;
+  }, []);
+
+  const setYRotation = (v) => {
+    if (rotateY.current === undefined) api.rotation.set(0, v, 0);
+    rotateY.current = v;
+  };
+
+  const getYRotation = () => {
+    let currentRotation = rotationRef.current;
+    if (currentRotation === undefined) return undefined;
+
+    if (Math.abs(rotateY.current) > Math.PI / 2) {
+      currentRotation = Math.sign(currentRotation) * Math.PI - currentRotation;
+    }
+
+    return currentRotation;
+  };
+
+  return [getYRotation, setYRotation];
 }
