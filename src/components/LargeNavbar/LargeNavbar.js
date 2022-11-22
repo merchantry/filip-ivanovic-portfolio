@@ -20,7 +20,11 @@ function LargeNavbar() {
   return (
     <Navbar className={`LargeNavbar ${menuOpen && 'NavbarOpen'}`}>
       <Nav className="middle-section">
-        <NavbarLink className="Name" href="/" style={randomTransitionDelay()}>
+        <NavbarLink
+          className="Name TextShadow"
+          href="/"
+          style={randomTransitionDelay()}
+        >
           Filip Ivanovic
         </NavbarLink>
         <NavbarLink href="/previous-work" style={randomTransitionDelay()}>

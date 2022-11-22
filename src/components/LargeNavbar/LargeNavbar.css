@@ -22,6 +22,7 @@
 .middle-section>*,
 .middle-section>*:hover {
   color: var(--primary-text);
+  transition: text-shadow 1s;
 }
 
 .middle-section>*:not(.Name) {
