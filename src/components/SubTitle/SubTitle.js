@@ -4,7 +4,7 @@ import './SubTitle.css';
 
 const SubTitle = forwardRef(({ children }, ref) => {
   return (
-    <Row ref={ref} className="SubTitle">
+    <Row ref={ref} className="SubTitle TextShadow">
       <h1>{children}</h1>
     </Row>
   );

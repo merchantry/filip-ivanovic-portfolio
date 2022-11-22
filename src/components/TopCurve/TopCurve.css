@@ -13,7 +13,7 @@
   margin-top: 0px;
   height: 20px;
   background: rgb(255, 255, 255);
-  background: linear-gradient(0deg, #ffffff, var(--primary-light));
+  background: linear-gradient(0deg, var(--background), var(--primary-light));
 }
 
 .CurvePart {
@@ -22,7 +22,7 @@
   width: 200px;
   border-radius: 50%;
   background: var(--primary-light);
-  background: radial-gradient(circle, var(--primary-light) 0%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(farthest-side, var(--primary-light) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .OverrideVisibility {

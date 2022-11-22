@@ -10,7 +10,6 @@
 }
 
 :root {
-  --root-button-color: #002f76;
   --button-color: var(--root-button-color);
   --button-border-color: var(--button-color);
 }

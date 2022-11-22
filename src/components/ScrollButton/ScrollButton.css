@@ -21,7 +21,7 @@
 .GoUp {
   --suck-in-duration: 0.5s;
   --button-color: var(--primary-dark);
-
+  --button-border-color: var(--background);
   position: fixed;
   bottom: 50px;
   right: 50px;
@@ -37,7 +37,7 @@
 
 .OverFooter {
   --button-color: var(--primary-light);
-
+  --button-border-color: var(--primary-dark);
   color: var(--primary-dark);
 }
 

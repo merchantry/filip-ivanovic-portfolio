@@ -7,6 +7,7 @@
   height: auto;
   width: auto;
   z-index: -1;
+  background-color: var(--background);
   filter: blur(50px);
   -webkit-filter: blur(50px);
 }
@@ -15,13 +16,37 @@
   position: absolute;
 }
 
+.Background svg {
+  fill: var(--primary-light);
+}
+
 .Blob1 {
-  top: 20%;
-  transform: scale(188%) translate(-6%, 40%);
+  top: 10%;
+  left: -40%;
+  scale: 600%;
 }
 
 .Blob2 {
-  top: 33%;
-  right: 0;
-  transform: scale(186%) translate(17%, 10%) rotate(345deg);
+  top: 40%;
+  right: -20%;
+  scale: 150%;
+
+}
+
+.Blob {
+  animation: blob 60s ease-in-out infinite;
+}
+
+@keyframes blob {
+  0% {
+    transform: rotate(0deg) skew(0deg, 0deg);
+  }
+
+  50% {
+    transform: rotate(30deg) skew(40deg, 20deg) translateX(50px);
+  }
+
+  100% {
+    transform: rotate(0deg) skew(0deg, 0deg);
+  }
 }
