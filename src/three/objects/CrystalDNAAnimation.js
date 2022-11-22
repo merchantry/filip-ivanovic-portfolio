@@ -5,9 +5,9 @@ import CrystalSpiral from './CrystalSpiral';
 import RotatingCrystals from './RotatingCrystals';
 
 const SPIRAL_HEIGHT = 150;
-const START = 60;
+const START = 20;
 const GAP = 15;
-const AMOUNT = 15;
+const AMOUNT = 5;
 const RC_HEIGHTS = newArray(AMOUNT, (i) => START - i * GAP);
 
 function CrystalDNAAnimation() {

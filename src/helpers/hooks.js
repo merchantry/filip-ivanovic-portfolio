@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { FLOOR_NAME } from '../three/objects/Floor';
 import { randomPositionAtHeight, randomTriple } from './helpers';
 
@@ -109,4 +109,19 @@ export function useMovementAttribute(api, attribute) {
   };
 
   return [dataRef.current, setAttribute];
+}
+
+export function useOncePerInterval(fn, interval, deps) {
+  const timeRef = useRef(0);
+  const callback = useCallback(fn, deps);
+
+  const intervalCallback = (...args) => {
+    const time = Date.now();
+
+    if (time - timeRef.current < interval) return;
+    timeRef.current = time;
+    callback(...args);
+  };
+
+  return intervalCallback;
 }

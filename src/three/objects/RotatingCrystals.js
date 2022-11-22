@@ -1,7 +1,11 @@
 import { useCompoundBody } from '@react-three/cannon';
 import React, { useEffect } from 'react';
 import { Vector3 } from 'three';
-import { useMovementAttribute, useYRotation } from '../../helpers/hooks';
+import {
+  useMovementAttribute,
+  useOncePerInterval,
+  useYRotation,
+} from '../../helpers/hooks';
 import GlowingCrystalA from './GlowingCrystalA';
 import GlowingCrystalB from './GlowingCrystalB';
 
@@ -40,6 +44,14 @@ function RotatingCrystals({ rotateTo, rotationalSpeed, ...rest }) {
     'angularVelocity'
   );
 
+  const intervalSetV = useOncePerInterval(
+    (v) => {
+      setAVelocity(0, v, 0);
+    },
+    1000,
+    []
+  );
+
   useEffect(() => {
     if (!groupRef.current || !rotateTo) return;
     const angleTo = rotateTo.angleTo(refVector);
@@ -56,7 +68,7 @@ function RotatingCrystals({ rotateTo, rotationalSpeed, ...rest }) {
     const percentage = speedChange / Math.abs(targetSpeed);
     const resultSpeed = aVelocity[1] + percentage * 0.05;
 
-    setAVelocity(0, resultSpeed, 0);
+    intervalSetV(resultSpeed);
   }, [rotateTo, rotationalSpeed]);
 
   return (
