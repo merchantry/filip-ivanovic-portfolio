@@ -20,6 +20,11 @@ function Footer() {
                 Send Email
               </FooterLink>
               <p className="FooterText">{CONFIG.email}</p>
+              <br />
+              <p className="FooterText">Like this website?</p>
+              <FooterLink href="https://github.com/merchantry/filip-ivanovic-portfolio">
+                View sourse code
+              </FooterLink>
             </Nav>
           </Col>
         </Row>
