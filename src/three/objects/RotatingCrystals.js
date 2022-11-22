@@ -1,17 +1,15 @@
 import { useCompoundBody } from '@react-three/cannon';
 import React, { useEffect } from 'react';
 import { Vector3 } from 'three';
-import { useYRotation } from '../../helpers/hooks';
+import { useMovementAttribute, useYRotation } from '../../helpers/hooks';
 import GlowingCrystalA from './GlowingCrystalA';
 import GlowingCrystalB from './GlowingCrystalB';
 
 const rotation = [0, 0, Math.PI / 2];
 const GCGap = 5;
 const refVector = new Vector3(5, 0, 0);
-const getSpeedFromDistance = (d) =>
-  Math.max(-(1 / (800 * (Math.abs(d) + 2.5))) + 0.4, 0);
 
-function RotatingCrystals({ rotateTo, ...rest }) {
+function RotatingCrystals({ rotateTo, rotationalSpeed, ...rest }) {
   const [groupRef, api] = useCompoundBody(() => ({
     type: 'Kinematic',
     shapes: [
@@ -37,6 +35,10 @@ function RotatingCrystals({ rotateTo, ...rest }) {
   }));
 
   const [getYRotation, setYRotation] = useYRotation(api);
+  const [aVelocity, setAVelocity] = useMovementAttribute(
+    api,
+    'angularVelocity'
+  );
 
   useEffect(() => {
     if (!groupRef.current || !rotateTo) return;
@@ -47,9 +49,15 @@ function RotatingCrystals({ rotateTo, ...rest }) {
 
     const rotationDiff = Math.abs(rotateY - currentRotation);
     const leftToRotate = -Math.min(rotationDiff, Math.PI * 2 - rotationDiff);
-    const v = -getSpeedFromDistance(leftToRotate);
-    api.angularVelocity.set(0, v, 0);
-  }, [rotateTo]);
+    const offset = leftToRotate + 0.2;
+
+    const targetSpeed = -(rotationalSpeed + offset);
+    const speedChange = targetSpeed - aVelocity[1];
+    const percentage = speedChange / Math.abs(targetSpeed);
+    const resultSpeed = aVelocity[1] + percentage * 0.05;
+
+    setAVelocity(0, resultSpeed, 0);
+  }, [rotateTo, rotationalSpeed]);
 
   return (
     <group ref={groupRef}>

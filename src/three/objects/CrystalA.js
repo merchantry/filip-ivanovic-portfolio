@@ -4,9 +4,8 @@ import { useCompoundBody } from '@react-three/cannon';
 import { useFrame } from '@react-three/fiber';
 
 const modelPath = 'models/crystals/scene.gltf';
-const VELOCITY = 5;
 
-function CrystalA(props) {
+function CrystalA({ velocity, ...rest }) {
   const { nodes, materials } = useGLTF(modelPath);
   const [ref, api] = useCompoundBody(() => ({
     mass: 1,
@@ -24,12 +23,12 @@ function CrystalA(props) {
         rotation: [-Math.PI / 8, 0, -Math.PI / 20],
       },
     ],
-    velocity: [0, -VELOCITY, 0],
-    ...props,
+    velocity: [0, -velocity, 0],
+    ...rest,
   }));
 
   useFrame(() => {
-    api.velocity.set(0, -VELOCITY, 0);
+    api.velocity.set(0, -velocity, 0);
   });
 
   return (

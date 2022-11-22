@@ -12,6 +12,8 @@ import { newArray } from '../../helpers/arrayUtils';
 import CrystalA from './CrystalA';
 import { FLOOR_NAME } from './Floor';
 
+const VELOCITY = 5;
+
 const CrystalSpiral = forwardRef((props, ref) => {
   const {
     position = [0, 0, 0],
@@ -24,6 +26,12 @@ const CrystalSpiral = forwardRef((props, ref) => {
 
   const groupRef = useRef();
   const hitDetectRef = useRef({});
+  const fallSpeedRef = useRef({
+    crystalHitCount: 0,
+    totalTime: 0,
+    timestamp: 0,
+    currentRotationSpeed: 0,
+  });
 
   const zRotation = useMemo(() => {
     const perimiter = halfCirc * Math.PI * Math.PI;
@@ -105,7 +113,39 @@ const CrystalSpiral = forwardRef((props, ref) => {
     hitDetectRef.current[crystalUuid] = true;
 
     addOneCrystalAbove();
+    updateRotationalSpeed();
   };
+
+  const predictRotationalSpeed = () => {
+    const circleHeight = verticalGap * inACircle;
+    const fullCircleFallTime = (circleHeight / VELOCITY) * 1000;
+    return (Math.PI * 2) / (fullCircleFallTime / 1000);
+  };
+
+  const updateRotationalSpeed = useCallback(() => {
+    const time = Date.now();
+    if (!fallSpeedRef.current.timestamp) {
+      fallSpeedRef.current.timestamp = time;
+      return;
+    }
+    const timeDiff = time - fallSpeedRef.current.timestamp;
+    fallSpeedRef.current.crystalHitCount++;
+    fallSpeedRef.current.totalTime += timeDiff;
+    const avgTime =
+      fallSpeedRef.current.totalTime / fallSpeedRef.current.crystalHitCount;
+    const fullCircleFallTime = avgTime * inACircle;
+    fallSpeedRef.current.currentRotationSpeed =
+      (Math.PI * 2) / (fullCircleFallTime / 1000);
+
+    fallSpeedRef.current.timestamp = time;
+  }, []);
+
+  const getRotationalSpeed = useCallback(() => {
+    if (!fallSpeedRef.current.currentRotationSpeed)
+      return predictRotationalSpeed();
+
+    return fallSpeedRef.current.currentRotationSpeed;
+  }, []);
 
   const addOneCrystalAbove = () => {
     const children = groupRef.current.children;
@@ -144,6 +184,7 @@ const CrystalSpiral = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     getCrystalPositionAtHeight,
+    getRotationalSpeed,
   }));
 
   return (
@@ -154,6 +195,7 @@ const CrystalSpiral = forwardRef((props, ref) => {
             key={uuid}
             position={position}
             rotation={rotation}
+            velocity={VELOCITY}
             onCollide={onCollide}
           />
         ))}

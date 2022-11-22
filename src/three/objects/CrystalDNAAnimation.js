@@ -7,7 +7,7 @@ import RotatingCrystals from './RotatingCrystals';
 const SPIRAL_HEIGHT = 150;
 const START = 60;
 const GAP = 15;
-const AMOUNT = 10;
+const AMOUNT = 15;
 const RC_HEIGHTS = newArray(AMOUNT, (i) => START - i * GAP);
 
 function CrystalDNAAnimation() {
@@ -17,6 +17,8 @@ function CrystalDNAAnimation() {
     RC_HEIGHTS.map((height) => ({ height, rotateTo: 0 }))
   );
 
+  const [rotationalSpeed, setRotationalSpeed] = useState(0);
+
   useFrame(() => {
     setCrystalsAt((currentData) =>
       currentData.map(({ height }) => ({
@@ -24,6 +26,8 @@ function CrystalDNAAnimation() {
         rotateTo: spiralRef.current.getCrystalPositionAtHeight(height),
       }))
     );
+
+    setRotationalSpeed(spiralRef.current.getRotationalSpeed());
   });
 
   return (
@@ -38,6 +42,7 @@ function CrystalDNAAnimation() {
           key={height}
           position={[0, height, 0]}
           rotateTo={rotateTo}
+          rotationalSpeed={rotationalSpeed}
         />
       ))}
     </>

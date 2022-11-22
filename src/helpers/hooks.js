@@ -74,7 +74,9 @@ export function useYRotation(api) {
   }, []);
 
   const setYRotation = (v) => {
-    if (rotateY.current === undefined) api.rotation.set(0, v, 0);
+    if (rotateY.current === undefined) {
+      api.rotation.set(0, v, 0);
+    }
     rotateY.current = v;
   };
 
@@ -90,4 +92,21 @@ export function useYRotation(api) {
   };
 
   return [getYRotation, setYRotation];
+}
+
+export function useMovementAttribute(api, attribute) {
+  const dataRef = useRef([0, 0, 0]);
+
+  useEffect(() => {
+    const unsubscribe = api[attribute].subscribe((v) => {
+      dataRef.current = v;
+    });
+    return unsubscribe;
+  }, []);
+
+  const setAttribute = (...v) => {
+    api[attribute].set(...v);
+  };
+
+  return [dataRef.current, setAttribute];
 }
