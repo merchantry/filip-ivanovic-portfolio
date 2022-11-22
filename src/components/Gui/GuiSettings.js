@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export class GuiSettigns {
   updatedEvent = 'updatedGuiSettings';
@@ -61,7 +61,7 @@ export function useControl(controlName, initialState, options = undefined) {
   useEffect(() => {
     const eventName = GuiSettigns.controlEventName(controlName);
     window.addEventListener(eventName, callback);
-    GuiSettigns.addControl(controlName, initialState, options);
+    guiSettings.addControl(controlName, initialState, options);
 
     return () => {
       window.removeEventListener(eventName, callback);
