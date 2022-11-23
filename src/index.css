@@ -9,7 +9,7 @@ body {
 }
 
 .TextShadow {
-  text-shadow: 0px 0px 12px var(--primary-dark);
+  text-shadow: 0 0 6px var(--primary-light);
 }
 
 code {
