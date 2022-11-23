@@ -73,8 +73,8 @@ export function useYRotation(api) {
     return unsubscribe;
   }, []);
 
-  const setYRotation = (v) => {
-    if (rotateY.current === undefined) {
+  const setYRotation = (v, update) => {
+    if (rotateY.current === undefined || update) {
       api.rotation.set(0, v, 0);
     }
     rotateY.current = v;
