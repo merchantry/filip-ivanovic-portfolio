@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "http://localhost:3000/static/css/main.1c3f0212.css",
-    "main.js": "http://localhost:3000/static/js/main.6c47d2d0.js",
+    "main.js": "http://localhost:3000/static/js/main.2bf29350.js",
     "static/js/787.fbe851b6.chunk.js": "http://localhost:3000/static/js/787.fbe851b6.chunk.js",
     "static/media/crystal_bg.jpg": "http://localhost:3000/static/media/crystal_bg.deb40544744c89bb3aea.jpg",
     "static/media/white_crystal_bg.jpg": "http://localhost:3000/static/media/white_crystal_bg.82ef983fd8337cc53425.jpg",
@@ -9,11 +9,11 @@
     "static/media/blob_1.svg": "http://localhost:3000/static/media/blob_1.27c5b593af648e85e92c66c5f8715074.svg",
     "static/media/blob_2.svg": "http://localhost:3000/static/media/blob_2.37cb2a93f66e910538c17e053335fdd0.svg",
     "main.1c3f0212.css.map": "http://localhost:3000/static/css/main.1c3f0212.css.map",
-    "main.6c47d2d0.js.map": "http://localhost:3000/static/js/main.6c47d2d0.js.map",
+    "main.2bf29350.js.map": "http://localhost:3000/static/js/main.2bf29350.js.map",
     "787.fbe851b6.chunk.js.map": "http://localhost:3000/static/js/787.fbe851b6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1c3f0212.css",
-    "static/js/main.6c47d2d0.js"
+    "static/js/main.2bf29350.js"
   ]
 }
