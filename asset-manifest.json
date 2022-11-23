@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "http://filipivanovic.me/static/css/main.6a7704af.css",
-    "main.js": "http://filipivanovic.me/static/js/main.49952e81.js",
-    "static/js/787.fbe851b6.chunk.js": "http://filipivanovic.me/static/js/787.fbe851b6.chunk.js",
-    "static/media/crystal_bg.jpg": "http://filipivanovic.me/static/media/crystal_bg.deb40544744c89bb3aea.jpg",
-    "static/media/white_crystal_bg.jpg": "http://filipivanovic.me/static/media/white_crystal_bg.82ef983fd8337cc53425.jpg",
-    "index.html": "http://filipivanovic.me/index.html",
-    "static/media/blob_1.svg": "http://filipivanovic.me/static/media/blob_1.27c5b593af648e85e92c66c5f8715074.svg",
-    "static/media/blob_2.svg": "http://filipivanovic.me/static/media/blob_2.37cb2a93f66e910538c17e053335fdd0.svg",
-    "main.6a7704af.css.map": "http://filipivanovic.me/static/css/main.6a7704af.css.map",
-    "main.49952e81.js.map": "http://filipivanovic.me/static/js/main.49952e81.js.map",
-    "787.fbe851b6.chunk.js.map": "http://filipivanovic.me/static/js/787.fbe851b6.chunk.js.map"
+    "main.css": "http://merchantry.github.io/filip-ivanovic-portfolio/static/css/main.9a886c16.css",
+    "main.js": "http://merchantry.github.io/filip-ivanovic-portfolio/static/js/main.77245860.js",
+    "static/js/787.fbe851b6.chunk.js": "http://merchantry.github.io/filip-ivanovic-portfolio/static/js/787.fbe851b6.chunk.js",
+    "static/media/crystal_bg.jpg": "http://merchantry.github.io/filip-ivanovic-portfolio/static/media/crystal_bg.deb40544744c89bb3aea.jpg",
+    "static/media/white_crystal_bg.jpg": "http://merchantry.github.io/filip-ivanovic-portfolio/static/media/white_crystal_bg.82ef983fd8337cc53425.jpg",
+    "index.html": "http://merchantry.github.io/filip-ivanovic-portfolio/index.html",
+    "static/media/blob_1.svg": "http://merchantry.github.io/filip-ivanovic-portfolio/static/media/blob_1.27c5b593af648e85e92c66c5f8715074.svg",
+    "static/media/blob_2.svg": "http://merchantry.github.io/filip-ivanovic-portfolio/static/media/blob_2.37cb2a93f66e910538c17e053335fdd0.svg",
+    "main.9a886c16.css.map": "http://merchantry.github.io/filip-ivanovic-portfolio/static/css/main.9a886c16.css.map",
+    "main.77245860.js.map": "http://merchantry.github.io/filip-ivanovic-portfolio/static/js/main.77245860.js.map",
+    "787.fbe851b6.chunk.js.map": "http://merchantry.github.io/filip-ivanovic-portfolio/static/js/787.fbe851b6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a7704af.css",
-    "static/js/main.49952e81.js"
+    "static/css/main.9a886c16.css",
+    "static/js/main.77245860.js"
   ]
 }
