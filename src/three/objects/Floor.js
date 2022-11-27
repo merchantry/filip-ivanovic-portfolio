@@ -1,7 +1,6 @@
 import { usePlane } from '@react-three/cannon';
 import { DoubleSide } from 'three';
 
-export const FLOOR_NAME = 'FLOOR_PLANE';
 const SIZE = 1000;
 const args = [SIZE, SIZE];
 
@@ -15,7 +14,7 @@ function Floor(props) {
   }));
 
   return (
-    <mesh ref={ref} scale={1} name={FLOOR_NAME} visible={props.visible}>
+    <mesh ref={ref} scale={1} name={'FLOOR_PLANE'} visible={props.visible}>
       <planeGeometry args={args} />
       <meshBasicMaterial color="red" wireframe side={DoubleSide} />
     </mesh>

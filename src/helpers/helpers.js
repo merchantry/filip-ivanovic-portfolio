@@ -1,6 +1,3 @@
-import CONFIG from '../config';
-import { newArray } from './arrayUtils';
-
 export function randomInt(min, max) {
   const diff = max - min;
   return Math.ceil(Math.random() * diff) + min;
@@ -9,16 +6,6 @@ export function randomInt(min, max) {
 export function randomFloat(min, max) {
   const diff = max - min;
   return Math.random() * diff + min;
-}
-
-export function randomTriple(maxDeviation) {
-  return newArray(3, () => randomFloat(-maxDeviation, maxDeviation));
-}
-
-export function randomPositionAtHeight(height) {
-  const pos = randomTriple(CONFIG.positionRange);
-  pos[1] += height;
-  return pos;
 }
 
 export function yDistanceToElement(element) {
