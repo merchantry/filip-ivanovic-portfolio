@@ -10,7 +10,6 @@ import { Vector3 } from 'three';
 import { generateUUID } from 'three/src/math/MathUtils';
 import { newArray } from '../../helpers/arrayUtils';
 import CrystalA from './CrystalA';
-import { FLOOR_NAME } from './Floor';
 
 const VELOCITY = 5;
 
@@ -26,12 +25,6 @@ const CrystalSpiral = forwardRef((props, ref) => {
 
   const groupRef = useRef();
   const hitDetectRef = useRef({});
-  const fallSpeedRef = useRef({
-    crystalHitCount: 0,
-    totalTime: 0,
-    timestamp: 0,
-    currentRotationSpeed: 0,
-  });
 
   const zRotation = useMemo(() => {
     const perimiter = halfCirc * Math.PI * Math.PI;
@@ -104,47 +97,20 @@ const CrystalSpiral = forwardRef((props, ref) => {
     newArray(total, (i) => createCrystalData(i))
   );
 
-  const onCollide = (e) => {
-    if (e?.body?.name !== FLOOR_NAME) return;
-    const crystalUuid = e.target.uuid;
+  const onCollide = (o) => {
+    const crystalUuid = o.uuid;
     if (crystalUuid in hitDetectRef.current) return;
     if (Object.keys(hitDetectRef.current).length > inACircle)
       hitDetectRef.current = {};
     hitDetectRef.current[crystalUuid] = true;
 
     addOneCrystalAbove();
-    updateRotationalSpeed();
   };
 
-  const predictRotationalSpeed = () => {
+  const getRotationalSpeed = useCallback(() => {
     const circleHeight = verticalGap * inACircle;
     const fullCircleFallTime = (circleHeight / VELOCITY) * 1000;
     return (Math.PI * 2) / (fullCircleFallTime / 1000);
-  };
-
-  const updateRotationalSpeed = useCallback(() => {
-    const time = Date.now();
-    if (!fallSpeedRef.current.timestamp) {
-      fallSpeedRef.current.timestamp = time;
-      return;
-    }
-    const timeDiff = time - fallSpeedRef.current.timestamp;
-    fallSpeedRef.current.crystalHitCount++;
-    fallSpeedRef.current.totalTime += timeDiff;
-    const avgTime =
-      fallSpeedRef.current.totalTime / fallSpeedRef.current.crystalHitCount;
-    const fullCircleFallTime = avgTime * inACircle;
-    fallSpeedRef.current.currentRotationSpeed =
-      (Math.PI * 2) / (fullCircleFallTime / 1000);
-
-    fallSpeedRef.current.timestamp = time;
-  }, []);
-
-  const getRotationalSpeed = useCallback(() => {
-    if (!fallSpeedRef.current.currentRotationSpeed)
-      return predictRotationalSpeed();
-
-    return fallSpeedRef.current.currentRotationSpeed;
   }, []);
 
   const addOneCrystalAbove = () => {

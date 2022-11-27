@@ -1,14 +1,17 @@
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useCompoundBody } from '@react-three/cannon';
+import { useMovementAttribute } from '../../helpers/hooks';
 import { useFrame } from '@react-three/fiber';
+import CONFIG from '../../config';
 
 const modelPath = 'models/crystals/scene.gltf';
 
-function CrystalA({ velocity, ...rest }) {
+function CrystalA({ velocity, onCollide, ...rest }) {
   const { nodes, materials } = useGLTF(modelPath);
   const [ref, api] = useCompoundBody(() => ({
     mass: 1,
+    type: 'Kinematic',
     shapes: [
       {
         type: 'Cylinder',
@@ -27,8 +30,12 @@ function CrystalA({ velocity, ...rest }) {
     ...rest,
   }));
 
+  const [position] = useMovementAttribute(api, 'position');
+
   useFrame(() => {
-    api.velocity.set(0, -velocity, 0);
+    if (position[1] <= CONFIG.floorHeight) {
+      onCollide && onCollide(ref.current);
+    }
   });
 
   return (

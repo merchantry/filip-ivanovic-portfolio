@@ -27,7 +27,8 @@ function CrystalDNAAnimation() {
       }))
     );
 
-    setRotationalSpeed(spiralRef.current.getRotationalSpeed());
+    if (!rotationalSpeed)
+      setRotationalSpeed(spiralRef.current.getRotationalSpeed());
   });
 
   return (

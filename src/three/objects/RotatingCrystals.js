@@ -8,7 +8,6 @@ import GlowingCrystalB from './GlowingCrystalB';
 const rotation = [0, 0, Math.PI / 2];
 const GCGap = 5;
 const refVector = new Vector3(5, 0, 0);
-const speedBoostMultiplier = 0.5;
 
 function RotatingCrystals({ rotateTo, rotationalSpeed, ...rest }) {
   const [groupRef, api] = useCompoundBody(() => ({
@@ -47,13 +46,8 @@ function RotatingCrystals({ rotateTo, rotationalSpeed, ...rest }) {
     const rotationDiff = Math.abs(rotateY - currentRotation);
     const leftToRotate = -Math.min(rotationDiff, Math.PI * 2 - rotationDiff);
     setYRotation(rotateY, Math.abs(leftToRotate) > 0.5);
-    const overLimit =
-      Math.abs(leftToRotate) > 0 && 0 > rotateY - currentRotation;
-    const targetSpeed = -(
-      rotationalSpeed + (overLimit ? rotationalSpeed * speedBoostMultiplier : 0)
-    );
 
-    setAVelocity(0, targetSpeed, 0);
+    setAVelocity(0, -rotationalSpeed, 0);
   }, [rotateTo, rotationalSpeed]);
 
   return (
