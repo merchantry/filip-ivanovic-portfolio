@@ -16,7 +16,7 @@ const Hero = forwardRef((_, ref) => {
           <Gui />
 
           <Col md className="Hero">
-            <div className="MainTitle TextShadow">
+            <div className="MainTitle">
               <h1>I work on cool high-end apps</h1>
               <h5>
                 Hi, I'm a{' '}

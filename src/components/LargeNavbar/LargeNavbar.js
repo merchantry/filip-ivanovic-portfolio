@@ -21,7 +21,7 @@ function LargeNavbar() {
     <Navbar className={`LargeNavbar ${menuOpen && 'NavbarOpen'}`}>
       <Nav className="middle-section">
         <NavbarLink
-          className="Name TextShadow"
+          className="Name"
           href="/"
           style={randomTransitionDelay()}
         >
