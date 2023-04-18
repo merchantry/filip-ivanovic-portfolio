@@ -27,13 +27,13 @@ function LargeNavbar() {
         >
           Filip Ivanovic
         </NavbarLink>
-        <NavbarLink href="/previous-work" style={randomTransitionDelay()}>
+        <NavbarLink href="/#previous-work" style={randomTransitionDelay()}>
           Previous Work
         </NavbarLink>
-        <NavbarLink href="/tech-stack" style={randomTransitionDelay()}>
+        <NavbarLink href="/#tech-stack" style={randomTransitionDelay()}>
           Tech Stack
         </NavbarLink>
-        <NavbarLink href="/contacts" style={randomTransitionDelay()}>
+        <NavbarLink href="/#contacts" style={randomTransitionDelay()}>
           Contacts
         </NavbarLink>
         <NavbarLink href="/Filip_Ivanovic_CV.pdf" newWindow>

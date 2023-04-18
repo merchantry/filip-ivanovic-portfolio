@@ -34,21 +34,21 @@ function Content() {
 
   const scrollToFooter = () => scrollTo(document.getElementById('Footer'));
 
-  const onUrlChange = (url) => {
-    switch (url) {
-      case '/':
+  const onUrlChange = (hash) => {
+    switch (hash) {
+      case '':
         scrollToHero();
         break;
 
-      case '/previous-work':
+      case '#previous-work':
         scrollToProjects();
         break;
 
-      case '/tech-stack':
+      case '#tech-stack':
         scrollToTechStack();
         break;
 
-      case '/contacts':
+      case '#contacts':
         scrollToFooter();
         break;
 
@@ -68,12 +68,12 @@ function Content() {
     if (techStackDistance < -0.5) setHighlightTechStack([]);
   });
 
-  useWindowEvent('replaceState', (e) => {
-    onUrlChange(e.detail);
+  useWindowEvent('replaceState', () => {
+    onUrlChange(window.location.hash);
   });
 
   useEffect(() => {
-    onUrlChange(window.location.pathname);
+    onUrlChange(window.location.hash);
   }, []);
 
   return (
