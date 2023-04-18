@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "https://merchantry.github.io/filip-ivanovic-portfolio/static/css/main.5fc260be.css",
-    "main.js": "https://merchantry.github.io/filip-ivanovic-portfolio/static/js/main.28362df2.js",
+    "main.css": "https://merchantry.github.io/filip-ivanovic-portfolio/static/css/main.220bef93.css",
+    "main.js": "https://merchantry.github.io/filip-ivanovic-portfolio/static/js/main.95d5a23b.js",
     "static/js/787.fbe851b6.chunk.js": "https://merchantry.github.io/filip-ivanovic-portfolio/static/js/787.fbe851b6.chunk.js",
     "static/media/crystal_bg.jpg": "https://merchantry.github.io/filip-ivanovic-portfolio/static/media/crystal_bg.deb40544744c89bb3aea.jpg",
     "static/media/white_crystal_bg.jpg": "https://merchantry.github.io/filip-ivanovic-portfolio/static/media/white_crystal_bg.82ef983fd8337cc53425.jpg",
     "index.html": "https://merchantry.github.io/filip-ivanovic-portfolio/index.html",
     "static/media/blob_1.svg": "https://merchantry.github.io/filip-ivanovic-portfolio/static/media/blob_1.27c5b593af648e85e92c66c5f8715074.svg",
     "static/media/blob_2.svg": "https://merchantry.github.io/filip-ivanovic-portfolio/static/media/blob_2.37cb2a93f66e910538c17e053335fdd0.svg",
-    "main.5fc260be.css.map": "https://merchantry.github.io/filip-ivanovic-portfolio/static/css/main.5fc260be.css.map",
-    "main.28362df2.js.map": "https://merchantry.github.io/filip-ivanovic-portfolio/static/js/main.28362df2.js.map",
+    "main.220bef93.css.map": "https://merchantry.github.io/filip-ivanovic-portfolio/static/css/main.220bef93.css.map",
+    "main.95d5a23b.js.map": "https://merchantry.github.io/filip-ivanovic-portfolio/static/js/main.95d5a23b.js.map",
     "787.fbe851b6.chunk.js.map": "https://merchantry.github.io/filip-ivanovic-portfolio/static/js/787.fbe851b6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fc260be.css",
-    "static/js/main.28362df2.js"
+    "static/css/main.220bef93.css",
+    "static/js/main.95d5a23b.js"
   ]
 }
