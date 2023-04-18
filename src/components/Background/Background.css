@@ -8,8 +8,8 @@
   width: auto;
   z-index: -1;
   background-color: var(--background);
-  filter: blur(50px);
-  -webkit-filter: blur(50px);
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
 }
 
 .Background * {
@@ -21,7 +21,7 @@
 }
 
 .Blob1 {
-  top: 10%;
+  top: 20%;
   left: -40%;
   scale: 600%;
 }
