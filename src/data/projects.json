@@ -22,5 +22,13 @@
     "description": "3D web development tools for creating custom Sphere UIs",
     "link": "https://spheredemo.sphere.co.uk/en/website",
     "techStack": ["React", "Three.js", "Typescript", "Sass"]
+  },
+  {
+    "folder": "fast_edge",
+    "numOfPics": 3,
+    "title": "Fast Edge Demo",
+    "description": "Various dev tools made in Next.js",
+    "link": "https://fast-edge-demo.fastedge.gcore.dev/",
+    "techStack": ["Next.js", "Typescript", "Node.js"]
   }
 ]

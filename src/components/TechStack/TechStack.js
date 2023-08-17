@@ -12,6 +12,7 @@ import {
   SiSolidity,
   SiWeb3Dotjs,
   SiNodedotjs,
+  SiNextdotjs,
 } from 'react-icons/si';
 import './TechStack.css';
 import { forwardRef, useMemo } from 'react';
@@ -25,6 +26,7 @@ function getTechStackData() {
       { text: 'Three.js', icon: <SiThreedotjs /> },
       { text: 'Typescript', icon: <SiTypescript /> },
       { text: 'Sass', icon: <FaSass /> },
+      { text: 'Next.js', icon: <SiNextdotjs /> },
     ],
     [
       { text: 'PHP', icon: <DiPhp /> },
