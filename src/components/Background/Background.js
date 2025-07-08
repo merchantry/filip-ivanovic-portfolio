@@ -6,7 +6,7 @@ function Background() {
   return (
     <div className="Background">
       <Blob1 className="Blob1 Blob" />
-      <Blob2 className="Blob2 Blob" />
+      {/* <Blob2 className="Blob2 Blob" /> */}
     </div>
   );
 }

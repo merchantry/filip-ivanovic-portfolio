@@ -1,15 +1,12 @@
 import { OrbitControls } from '@react-three/drei';
-import { Physics } from '@react-three/cannon';
 import { AxesHelper } from 'three';
 import CrystalDNAAnimation from '../objects/CrystalDNAAnimation';
 import { useOnScroll, useWindowEvent } from '../../helpers/hooks';
-import TogglableDebug from '../objects/TogglableDebug';
 import { useRef, useState } from 'react';
-import Floor from '../objects/Floor';
 import { useThree } from '@react-three/fiber';
 import CONFIG from '../../config';
 
-const DEBUG = false;
+const DEBUG = true;
 
 function HeroScene() {
   const [paused, setPaused] = useState(false);
@@ -23,7 +20,7 @@ function HeroScene() {
     setPaused((current) => !current);
   };
 
-  useOnScroll((scroll) => {
+  useOnScroll((_, scroll) => {
     if (!orbitControlsRef.current) return;
     const targetY = -Math.min(scroll / 10, 100);
 
@@ -32,6 +29,8 @@ function HeroScene() {
   });
 
   useWindowEvent('dblclick', (e) => {
+    console.log('Double click detected', e.target.tagName);
+
     if (e.target.tagName !== 'CANVAS') return;
     updatePaused();
   });
@@ -43,12 +42,7 @@ function HeroScene() {
       <pointLight color="white" intensity={1} position={[-17, 18, 2]} />
       <pointLight color="white" intensity={1} position={[0, -200, -50]} />
       <primitive object={new AxesHelper(2000)} visible={DEBUG} />
-      <Physics gravity={[0, CONFIG.acceleration, 0]} isPaused={paused}>
-        <TogglableDebug color="black" disable={!DEBUG}>
-          <CrystalDNAAnimation />
-          <Floor position={[0, CONFIG.floorHeight, 0]} visible={DEBUG} />
-        </TogglableDebug>
-      </Physics>
+      <CrystalDNAAnimation />
       <OrbitControls
         ref={orbitControlsRef}
         autoRotate={!DEBUG}

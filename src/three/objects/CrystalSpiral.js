@@ -1,6 +1,7 @@
 import {
   forwardRef,
   useCallback,
+  useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
@@ -10,8 +11,17 @@ import { Vector3 } from 'three';
 import { generateUUID } from 'three/src/math/MathUtils';
 import { newArray } from '../../helpers/arrayUtils';
 import CrystalA from './CrystalA';
+import { useFrame } from '@react-three/fiber';
+import CONFIG from '../../config';
 
 const VELOCITY = 5;
+
+let reachedCenter = false;
+let passedCenter = false;
+
+let start = undefined;
+let reachedCenterTime = undefined;
+let passedCenterTime = undefined;
 
 const CrystalSpiral = forwardRef((props, ref) => {
   const {
@@ -97,16 +107,6 @@ const CrystalSpiral = forwardRef((props, ref) => {
     newArray(total, (i) => createCrystalData(i))
   );
 
-  const onCollide = (o) => {
-    const crystalUuid = o.uuid;
-    if (crystalUuid in hitDetectRef.current) return;
-    if (Object.keys(hitDetectRef.current).length > inACircle)
-      hitDetectRef.current = {};
-    hitDetectRef.current[crystalUuid] = true;
-
-    addOneCrystalAbove();
-  };
-
   const getRotationalSpeed = useCallback(() => {
     const circleHeight = verticalGap * inACircle;
     const fullCircleFallTime = (circleHeight / VELOCITY) * 1000;
@@ -143,6 +143,8 @@ const CrystalSpiral = forwardRef((props, ref) => {
       );
 
       const child = groupRef.current.children[index];
+      if (!child) return new Vector3(0, 0, 0);
+
       return child.getWorldPosition(new Vector3()).setY(0);
     },
     [verticalGap]
@@ -153,17 +155,34 @@ const CrystalSpiral = forwardRef((props, ref) => {
     getRotationalSpeed,
   }));
 
+  useFrame((_, d) => {
+    if (!groupRef.current) return;
+
+    if (!start) {
+      start = Date.now();
+      console.log('Start time', start);
+    }
+
+    groupRef.current.position.y -= CONFIG.speed * d;
+
+    if (!reachedCenter && groupRef.current.position.y <= -10) {
+      reachedCenter = true;
+      reachedCenterTime = Date.now() - start;
+      console.log('Reached center', reachedCenterTime, 'ms');
+    }
+
+    if (!passedCenter && groupRef.current.position.y <= -90) {
+      passedCenter = true;
+      passedCenterTime = Date.now() - (start + reachedCenterTime);
+      console.log('Passed center', passedCenterTime, 'ms');
+    }
+  });
+
   return (
     <group ref={ref}>
       <group ref={groupRef}>
         {data.map(({ position, rotation, uuid }) => (
-          <CrystalA
-            key={uuid}
-            position={position}
-            rotation={rotation}
-            velocity={VELOCITY}
-            onCollide={onCollide}
-          />
+          <CrystalA key={uuid} position={position} rotation={rotation} />
         ))}
       </group>
     </group>

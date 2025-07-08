@@ -37,7 +37,7 @@ const Hero = forwardRef((_, ref) => {
 
           <Col md className="CanvasContainer">
             <div className="Block Top" />
-            <Canvas camera={{ position: [0, 0, -30], far: 50000 }}>
+            <Canvas camera={{ position: [0, 0, -100], far: 50000 }}>
               <HeroScene />
             </Canvas>
             <div className="Block Bottom" />

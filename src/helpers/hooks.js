@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 export function useOnScroll(callback) {
+  const prevScrollY = useRef(window.scrollY);
+
   useEffect(() => {
-    const scrollCallback = () => {
-      callback(window.scrollY);
+    const scrollCallback = (e) => {
+      const currentScrollY = window.scrollY;
+      callback(e, currentScrollY, currentScrollY - prevScrollY.current);
+      prevScrollY.current = currentScrollY;
     };
     window.addEventListener('scroll', scrollCallback);
     return () => {

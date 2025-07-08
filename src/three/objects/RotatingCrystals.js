@@ -1,57 +1,50 @@
-import { useCompoundBody } from '@react-three/cannon';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Vector3 } from 'three';
 import { useMovementAttribute, useYRotation } from '../../helpers/hooks';
 import GlowingCrystalA from './GlowingCrystalA';
 import GlowingCrystalB from './GlowingCrystalB';
+import { useFrame } from '@react-three/fiber';
+import CONFIG from '../../config';
 
 const rotation = [0, 0, Math.PI / 2];
 const GCGap = 5;
 const refVector = new Vector3(5, 0, 0);
 
+let start = undefined;
+let lastRotation = undefined;
+
 function RotatingCrystals({ rotateTo, rotationalSpeed, ...rest }) {
-  const [groupRef, api] = useCompoundBody(() => ({
-    type: 'Kinematic',
-    shapes: [
-      {
-        type: 'Cylinder',
-        args: [0.71, 0.65, 4.05],
-        position: [GCGap, 0, 0],
-        rotation: rotation,
-      },
-      {
-        type: 'Cylinder',
-        args: [0.71, 0.65, 4.05],
-        position: [-GCGap, 0, 0],
-        rotation: rotation,
-      },
-      {
-        type: 'Cylinder',
-        args: [0.8, 0.8, 4.7],
-        rotation: rotation,
-      },
-    ],
-    ...rest,
-  }));
+  const ref = useRef();
 
-  const [getYRotation, setYRotation] = useYRotation(api);
-  const [, setAVelocity] = useMovementAttribute(api, 'angularVelocity');
+  useFrame((_, d) => {
+    if (!ref.current) return;
 
-  useEffect(() => {
-    if (!groupRef.current || !rotateTo) return;
-    const angleTo = rotateTo.angleTo(refVector);
-    const rotateY = (rotateTo.z > 0 ? -angleTo : angleTo) + 0.2;
-    const currentRotation = getYRotation();
+    if (!start) {
+      start = Date.now();
+      lastRotation = start;
+      console.log('Start time', start);
+    }
 
-    const rotationDiff = Math.abs(rotateY - currentRotation);
-    const leftToRotate = -Math.min(rotationDiff, Math.PI * 2 - rotationDiff);
-    setYRotation(rotateY, Math.abs(leftToRotate) > 0.5);
+    const currentRotation = ref.current.rotation.y;
+    const rotateBy = ((2 * Math.PI * CONFIG.speed) / 80) * d;
+    const targetRotation = currentRotation - rotateBy;
+    const madeFullRotation = targetRotation < -Math.PI * 2;
+    const newRotation = madeFullRotation ? 0 : targetRotation;
 
-    setAVelocity(0, -rotationalSpeed, 0);
-  }, [rotateTo, rotationalSpeed]);
+    if (madeFullRotation) {
+      const time = Date.now();
+      const diff = time - lastRotation;
+      lastRotation = time;
+      // console.log('Made full rotation', diff, 'ms');
+    }
+
+    ref.current.rotation.y = newRotation;
+
+    // ref.current.rotation.y -= 2 * Math.PI * d;
+  });
 
   return (
-    <group ref={groupRef}>
+    <group ref={ref} {...rest}>
       <GlowingCrystalA rotation={rotation} />
       <GlowingCrystalB position={[GCGap, 0, 0]} rotation={rotation} />
       <GlowingCrystalB position={[-GCGap, 0, 0]} rotation={rotation} />

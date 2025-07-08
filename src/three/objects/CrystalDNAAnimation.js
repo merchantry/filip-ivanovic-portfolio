@@ -4,11 +4,18 @@ import { newArray } from '../../helpers/arrayUtils';
 import CrystalSpiral from './CrystalSpiral';
 import RotatingCrystals from './RotatingCrystals';
 
-const SPIRAL_HEIGHT = 150;
-const START = 20;
+const SPIRAL_HEIGHT = 80;
+const START = 0;
 const GAP = 15;
-const AMOUNT = 5;
+const AMOUNT = 1;
 const RC_HEIGHTS = newArray(AMOUNT, (i) => START - i * GAP);
+
+const spiralData = {
+  halfCirc: 8,
+  inACircle: 20,
+  total: 20,
+  verticalGap: 4,
+};
 
 function CrystalDNAAnimation() {
   const spiralRef = useRef();
@@ -23,20 +30,25 @@ function CrystalDNAAnimation() {
     setCrystalsAt((currentData) =>
       currentData.map(({ height }) => ({
         height,
-        rotateTo: spiralRef.current.getCrystalPositionAtHeight(height),
+        rotateTo: 0,
       }))
     );
 
-    if (!rotationalSpeed)
-      setRotationalSpeed(spiralRef.current.getRotationalSpeed());
+    // if (!rotationalSpeed)
+    //   setRotationalSpeed(spiralRef.current.getRotationalSpeed());
   });
 
   return (
     <>
-      <CrystalSpiral ref={spiralRef} position={[0, SPIRAL_HEIGHT, 0]} />
+      <CrystalSpiral
+        ref={spiralRef}
+        position={[0, SPIRAL_HEIGHT, 0]}
+        {...spiralData}
+      />
       <CrystalSpiral
         position={[0, SPIRAL_HEIGHT, 0]}
         circleStartOffset={Math.PI}
+        {...spiralData}
       />
       {crystalsAt.map(({ height, rotateTo }) => (
         <RotatingCrystals

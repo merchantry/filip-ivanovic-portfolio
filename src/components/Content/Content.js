@@ -14,13 +14,23 @@ function Content() {
   const techStackRef = useRef();
 
   const [highlightTechStack, setHighlightTechStack] = useState([]);
+  const [isScrollingAuto, setIsScrollingAuto] = useState(false);
 
-  const scrollToHero = () => scrollTo(heroRef.current);
+  const scrollToElement = (element) => {
+    if (!element) return;
+
+    setIsScrollingAuto(true);
+    return scrollTo(element).then(() => {
+      setIsScrollingAuto(false);
+    });
+  };
+
+  const scrollToHero = () => scrollToElement(heroRef.current);
 
   const scrollToProjects = () => {
     if (!projectsRef.current.children.length) return;
 
-    return scrollTo(projectsRef.current.children[0]);
+    return scrollToElement(projectsRef.current.children[0]);
   };
 
   const scrollToTechStack = (techName) => {
@@ -29,29 +39,26 @@ function Content() {
           .flatMap((child) => [...child.children])
           .find((node) => node.innerText === techName) ?? techStackRef.current
       : techStackRef.current;
-    return scrollTo(element);
+    return scrollToElement(element);
   };
 
-  const scrollToFooter = () => scrollTo(document.getElementById('Footer'));
+  const scrollToFooter = () =>
+    scrollToElement(document.getElementById('Footer'));
 
   const onUrlChange = (hash) => {
     switch (hash) {
       case '':
         scrollToHero();
         break;
-
       case '#previous-work':
         scrollToProjects();
         break;
-
       case '#tech-stack':
         scrollToTechStack();
         break;
-
       case '#contacts':
         scrollToFooter();
         break;
-
       default:
         break;
     }
@@ -63,9 +70,50 @@ function Content() {
     });
   };
 
-  useOnScroll(() => {
+  const updateTechStackHighlight = () => {
     const techStackDistance = yDistanceToElement(techStackRef.current);
     if (techStackDistance < -0.5) setHighlightTechStack([]);
+  };
+
+  const findNextProjectIndex = (delta) => {
+    const projectDistances = [...projectsRef.current.children].map((child) =>
+      yDistanceToElement(child)
+    );
+
+    if (delta > 0) {
+      return projectDistances.findIndex((distance) => distance < 0);
+    }
+
+    projectDistances.reverse();
+
+    const reverseIndex = projectDistances.findIndex((distance) => distance > 0);
+
+    return reverseIndex === -1
+      ? -1
+      : projectDistances.length - 1 - reverseIndex;
+  };
+
+  const onProjectsScroll = (delta) => {
+    if (isScrollingAuto) return;
+
+    const windowHeight = window.innerHeight;
+    const projectsRect = projectsRef.current.getBoundingClientRect();
+    const isInProjects =
+      projectsRect.top <= windowHeight / 3 &&
+      projectsRect.bottom >= windowHeight / 3;
+
+    if (!isInProjects) return;
+    const nextProjectIndex = findNextProjectIndex(delta);
+
+    if (nextProjectIndex === -1) return;
+
+    scrollToElement(projectsRef.current.children[nextProjectIndex]);
+  };
+
+  useOnScroll((_e, _s, delta) => {
+    updateTechStackHighlight();
+
+    onProjectsScroll(delta);
   });
 
   useWindowEvent('replaceState', () => {
