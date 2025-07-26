@@ -26,13 +26,6 @@
   scale: 600%;
 }
 
-.Blob2 {
-  top: 40%;
-  right: -20%;
-  scale: 150%;
-
-}
-
 .Blob {
   animation: blob 60s ease-in-out infinite;
 }
