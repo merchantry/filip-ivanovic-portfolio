@@ -1,11 +1,42 @@
 [
   {
+    "folder": "sphere",
+    "numOfPics": 3,
+    "title": "Sphere",
+    "description": "3D web development tools for creating custom Sphere UIs",
+    "link": "https://spheredemo.sphere.co.uk/en/website",
+    "techStack": ["React", "Three.js", "Typescript", "Sass"]
+  },
+  {
+    "folder": "predicted",
+    "numOfPics": 2,
+    "title": "predicted",
+    "description": "Decentralized investor platform. Allows users to create and manage their own investment portfolios, track performance, and share strategies with others.",
+    "link": "https://daosicle-frontend.vercel.app/",
+    "techStack": [
+      "Next.js",
+      "Typescript",
+      "Sass",
+      "Node.js",
+      "MySQL",
+      "Solidity"
+    ]
+  },
+  {
     "folder": "webtoprint",
     "numOfPics": 3,
     "title": "WebToPrint",
     "description": "Private printing company management software. Includes modules for all parts of bussiness ranging from order generation, billing, accounting, inventory... This app also includes fiscalization",
-    "link": "https://imgur.com/gallery/L4uxVg9",
+    "link": "https://imgur.com/a/web2print-screenshots-2Rs3zel",
     "techStack": ["Vue", "Sass", "PHP", "MySQL"]
+  },
+  {
+    "folder": "ezcrow",
+    "numOfPics": 3,
+    "title": "Ezcrow",
+    "description": "A fully on-chain peer-to-peer trading platform. Allows users to trade stablecoins for fiat currencies and vice versa.",
+    "link": "https://ezcrow-ramp.netlify.app/",
+    "techStack": ["React", "Solidity", "Sass", "Node.js", "Typescript"]
   },
   {
     "folder": "robinos",
@@ -15,14 +46,7 @@
     "link": "https://robinos.finance/",
     "techStack": ["Solidity", "Web3"]
   },
-  {
-    "folder": "sphere",
-    "numOfPics": 3,
-    "title": "Sphere",
-    "description": "3D web development tools for creating custom Sphere UIs",
-    "link": "https://spheredemo.sphere.co.uk/en/website",
-    "techStack": ["React", "Three.js", "Typescript", "Sass"]
-  },
+
   {
     "folder": "fast_edge",
     "numOfPics": 3,
