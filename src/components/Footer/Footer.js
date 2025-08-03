@@ -23,7 +23,7 @@ function Footer() {
               <br />
               <p className="FooterText">Like this website?</p>
               <FooterLink href="https://github.com/merchantry/filip-ivanovic-portfolio">
-                View sourse code
+                View source code
               </FooterLink>
             </Nav>
           </Col>
