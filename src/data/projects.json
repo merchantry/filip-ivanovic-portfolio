@@ -31,12 +31,12 @@
     "techStack": ["Vue", "Sass", "PHP", "MySQL"]
   },
   {
-    "folder": "ezcrow",
+    "folder": "kineticmedical",
     "numOfPics": 3,
-    "title": "Ezcrow",
-    "description": "A fully on-chain peer-to-peer trading platform. Allows users to trade stablecoins for fiat currencies and vice versa.",
-    "link": "https://ezcrow-ramp.netlify.app/",
-    "techStack": ["React", "Solidity", "Sass", "Node.js", "Typescript"]
+    "title": "Kinetic Medical",
+    "description": "Medical data dashboard with measurement tools",
+    "link": "https://kinetic-medical.eu",
+    "techStack": ["Node.js", "Next.js", "Typescript"]
   },
   {
     "folder": "robinos",

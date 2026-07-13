@@ -21,7 +21,7 @@ const Hero = forwardRef((_, ref) => {
               <h5>
                 Hi, I'm a{' '}
                 <strong>
-                  <i>full-stack blockchain developer</i>
+                  <i>full-stack developer</i>
                 </strong>
                 . I love exploring new technologies and creating complex
                 systems. If you have a project in mind I can help you with,
